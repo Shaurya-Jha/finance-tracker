@@ -36,13 +36,13 @@ function FinancialRecordForm() {
     <div>
         <form className='flex flex-col gap-4 m-2 items-center' onSubmit={handleSubmit}>
             {/* description */}
-            <Input type='text' required placeholder='Add description...' />
+            <Input type='text' required placeholder='Add description...' value={description} onChange={(e) => setDescription(e.target.value)} />
 
             {/* amount */}
-            <Input type='number' required placeholder='Add amount...' />
+            <Input type='number' required placeholder='Add amount...' value={amount} onChange={(e) => setAmount(e.target.value)} />
 
             {/* select category */}
-            <Select required placeholder='Select category'>
+            <Select required placeholder='Select category' value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value={'Food'}>Food</option>
                 <option value={'Rent'}>Rent</option>
                 <option value={'Salary'}>Salary</option>
@@ -52,7 +52,7 @@ function FinancialRecordForm() {
             </Select>
 
             {/* payment method */}
-            <Select required placeholder='Select payment method'>
+            <Select required placeholder='Select payment method' value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
                 <option value={'Credit card'}>Credit Card</option>
                 <option value={'Cash'}>Cash</option>
                 <option value={'Bank transfer'}>Bank Transfer</option>
