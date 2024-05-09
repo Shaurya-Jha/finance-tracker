@@ -1,12 +1,14 @@
 import express, { Express } from "express"
 import mongoose from "mongoose"
 import finacialRecordRouter from "./routes/financial-records"
+import cors from "cors";
 
 const app: Express = express();
 const port = process.env.PORT || 3001
 
 // 
 app.use(express.json())
+app.use(cors())
 
 // connect variable to the mongodb database
 const mongoURI: string = 'mongodb+srv://nobody:nobody@finance-tracker.zpsvipn.mongodb.net/'
