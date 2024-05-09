@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Input, Button, Select } from '@chakra-ui/react'
 import { useUser } from '@clerk/clerk-react'
+import { useFinancialRecords } from '../../context/financial-record-context'
 
 function FinancialRecordForm() {
 
@@ -11,11 +12,13 @@ function FinancialRecordForm() {
     const [category, setCategory] = useState<string>('')
     const [paymentMethod, setPaymentMethod] = useState<string>('')
 
+    const {addRecord} = useFinancialRecords()
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const newRecord = {
-            userId: user?.id,
+            userId: user?.id ?? "",
             date: new Date(),
             description: description,
             amount: parseFloat(amount),
@@ -23,7 +26,7 @@ function FinancialRecordForm() {
             paymentMethod: paymentMethod,
         }
 
-        // addRecord(newRecord)
+        addRecord(newRecord)
 
         // clear the state of the fields
         setDescription("");
