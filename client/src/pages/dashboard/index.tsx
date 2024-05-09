@@ -13,7 +13,7 @@ function Dashboard() {
         <div>
 
             <div className='flex justify-center items-center w-full'>
-                <Heading as={"h3"}>Welcome {user?.firstName}! Here are your Finances</Heading>
+                <Heading as={"h3"}>Welcome {user?.firstName} {user?.lastName} ! Here are your Finances</Heading>
             </div>
 
             <div className='grid grid-cols-2'>
